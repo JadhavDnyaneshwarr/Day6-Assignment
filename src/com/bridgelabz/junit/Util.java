@@ -15,9 +15,39 @@ public class Util {
     static int p;
     static int r;
     static void dayOfWeek(){
-        LocalDate date = LocalDate.of(y,m,d);
-        DayOfWeek day = DayOfWeek.from(date);
+//        LocalDate date = LocalDate.of(y,m,d);
+//        DayOfWeek day = DayOfWeek.from(date);
+        int y1 = (y - (14-m)) /12;
+        int x = y1 + (y1 /4) - (y1 /100) + (y1 /400);
+        int m0 = m + 12 * ((14- m) / 12) -2;
+        int day  = (d + x + 31* m0 / 12) % 7 ;
 
+        switch (day){
+            case 0:
+                System.out.println("SUNDAY");
+                break;
+            case 1:
+                System.out.println("MONDAY");
+                break;
+            case 2:
+                System.out.println("TUESDAY");
+                break;
+            case 3:
+                System.out.println("WEDNESDAY");
+                break;
+            case 4:
+                System.out.println("THURSDAY");
+                break;
+            case 5:
+                System.out.println("FRIDAY");
+                break;
+            case 6:
+                System.out.println("SATURDAY");
+                break;
+            default:
+                System.out.println("wrong");
+                break;
+        }
 
         System.out.println(day);
     }
