@@ -52,7 +52,7 @@ public class Util {
         System.out.println(day);
     }
 
-    static void TemperatureConversion(){
+    static void temperatureConversion(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("enter the temperature=>");
         int temp = scanner.nextInt();
@@ -76,22 +76,24 @@ public class Util {
     static void monthlyPayment(){
         System.out.println("********************************");
         int m = yr * 12;
-        double R = r / 12;
-        double n = Math.pow((1+R)/100,(-m));
+        double R = (double) r / 1200;
+        double n = Math.pow((1+R),(-m));
         System.out.println(R);
         System.out.println(n);
-        double payment = (p * R)/ 1-(n);
+        double payment =  (double) (p * R)/ 1-(n);
         System.out.println("You should have " + payment + " payment per month to pay the loan");
     }
     public static void main(String[] args) {
-        y = Integer.parseInt(args[0]);
-        m = Integer.parseInt(args[1]);
-        d = Integer.parseInt(args[2]);
-        yr = Integer.parseInt(args[3]);
-        p = Integer.parseInt(args[4]);
-        r = Integer.parseInt(args[5]);
+        y = Integer.parseInt(args[0]); // year for day of week
+        m = Integer.parseInt(args[1]); // month for day of week
+        d = Integer.parseInt(args[2]); // date for day of week
+
+        yr = Integer.parseInt(args[3]); // year for monthly payment
+        p = Integer.parseInt(args[4]); // loan for monthly payment
+        r = Integer.parseInt(args[5]); // rate of loan for monthly payment
+
         dayOfWeek();
-//        TemperatureConversion();
+        temperatureConversion();
         monthlyPayment();
     }
 }
